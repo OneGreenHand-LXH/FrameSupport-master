@@ -92,7 +92,7 @@ public abstract class BaseSwipeListActivity<T extends ViewBinding, P extends Bas
             } else {
                 page++;
                 mBaseAdapter.addData(data);
-                if (dataSize >= pageCount)
+                if (dataSize == pageCount)
                     getLoadMoreModule().loadMoreComplete();
                 else
                     getLoadMoreModule().loadMoreEnd(false);
