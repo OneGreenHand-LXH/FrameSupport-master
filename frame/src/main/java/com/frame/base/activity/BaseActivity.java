@@ -16,6 +16,7 @@ import com.blankj.utilcode.util.BusUtils;
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.frame.R;
 import com.frame.base.BaseView;
+import com.frame.util.NotificationControlManager;
 import com.frame.view.LoadingDialog;
 import com.gyf.immersionbar.ImmersionBar;
 
@@ -169,6 +170,7 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
             dismissLoadingDialog();
             if (isRegisterBus())
                 BusUtils.unregister(this);
+            NotificationControlManager.getInstance().dismissDialog();
         }
     }
 }
