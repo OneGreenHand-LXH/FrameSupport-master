@@ -18,7 +18,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
 public class HttpRequest {
-    private APIService apiService;
+    private final APIService apiService;
 
     public HttpRequest() {
         apiService = RetrofitWrapper.getInstance().createApi(APIService.class);
@@ -39,9 +39,9 @@ public class HttpRequest {
     }
 
     /**
-     * @param mutilFileKey 多图的key
+     * @param MultiFileKey 多图的key
      */
-    public Observable<ResponseBody> uploadFile(String url, Map<String, Object> params, String mutilFileKey, List<FileInfoBean> fileList) {
+    public Observable<ResponseBody> uploadFile(String url, Map<String, Object> params, String MultiFileKey, List<FileInfoBean> fileList) {
         MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.setType(MultipartBody.FORM);
         if (params != null) {
@@ -49,10 +49,10 @@ public class HttpRequest {
                 builder.addFormDataPart(key, params.get(key).toString());
         }
         if (fileList != null && !fileList.isEmpty())
-            if (!TextUtils.isEmpty(mutilFileKey)) {//类型: photos[0]、photos[1]、photos[2]
+            if (!TextUtils.isEmpty(MultiFileKey)) {//类型: photos[0]、photos[1]、photos[2]
                 int i = 0;
                 for (FileInfoBean fileInfoBean : fileList) {
-                    builder.addFormDataPart(mutilFileKey + "[" + i + "]", fileInfoBean.file.getName(), RequestBody.create(fileInfoBean.file, MediaType.parse("multipart/form-data")));
+                    builder.addFormDataPart(MultiFileKey + "[" + i + "]", fileInfoBean.file.getName(), RequestBody.create(fileInfoBean.file, MediaType.parse("multipart/form-data")));
                     i++;
                 }
             } else {//类型: pic1、pic2、pic3

@@ -16,7 +16,6 @@ import com.blankj.utilcode.util.BusUtils;
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.frame.R;
 import com.frame.base.BaseView;
-import com.frame.util.NotificationControlManager;
 import com.frame.view.LoadingDialog;
 import com.gyf.immersionbar.ImmersionBar;
 
@@ -105,7 +104,7 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
 
     // Return whether touch the view.
     private boolean isShouldHideKeyboard(View v, MotionEvent event) {
-        if (v != null && (v instanceof EditText)) {
+        if (v instanceof EditText) {
             int[] l = {0, 0};
             v.getLocationInWindow(l);
             int left = l[0],
@@ -170,7 +169,7 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
             dismissLoadingDialog();
             if (isRegisterBus())
                 BusUtils.unregister(this);
-            NotificationControlManager.getInstance().dismissDialog();
+//            NotificationControlManager.getInstance().dismissDialog();//先不用,dialog绑定了生命周期
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.frame.view;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -49,6 +50,7 @@ public class NotificationDialog extends Dialog implements LifecycleObserver {
         initCommon(context);
     }
 
+    @SuppressLint("InflateParams")
     private void initCommon(Context context) {
         mContext = context;
         if (context instanceof AppCompatActivity) {
@@ -168,8 +170,8 @@ public class NotificationDialog extends Dialog implements LifecycleObserver {
 
     @Override
     public void show() {
-        if (mContext instanceof Activity) {
-            Activity activity = (Activity) mContext;
+        if (mContext instanceof AppCompatActivity) {
+            AppCompatActivity activity = (AppCompatActivity) mContext;
             if (activity.isFinishing() || activity.isDestroyed())
                 return;
         }

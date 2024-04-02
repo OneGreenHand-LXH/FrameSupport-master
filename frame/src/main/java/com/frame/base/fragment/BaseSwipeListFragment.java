@@ -39,6 +39,7 @@ public abstract class BaseSwipeListFragment<T extends ViewBinding, P extends Bas
             throw new RuntimeException("布局中必须有RecyclerView,并且RecyclerView中的ID为frame_recycleView");
         mRecyclerView.setLayoutManager(setLayoutManager());
         mBaseAdapter = setAdapter();
+//        getLoadMoreModule().setLoadMoreView(new CustomLoadMoreView());
         getAdapter();
     }
 
@@ -63,7 +64,7 @@ public abstract class BaseSwipeListFragment<T extends ViewBinding, P extends Bas
         return false;
     }
 
-    private OnLoadMoreListener loadMoreListener = new OnLoadMoreListener() {
+    private final OnLoadMoreListener loadMoreListener = new OnLoadMoreListener() {
         @Override
         public void onLoadMore() {
             loadMoreListRequest(page);

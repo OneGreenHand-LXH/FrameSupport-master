@@ -33,7 +33,7 @@ import static autodispose2.AutoDispose.autoDisposable;
 public class BaseModel {
 
     private final HttpRequest mHttpRequest;
-    private Builder mBuilder;
+    private final Builder mBuilder;
     private boolean mIsEmpty;
 
     private BaseModel(Builder builder) {
@@ -193,7 +193,7 @@ public class BaseModel {
         private boolean isDialogCancel = true;//请求时dialog是否可以手动取消
         //动态参数
         private Map<String, Object> mParam;
-        private BaseRequestView mBaseRequestView;
+        private final BaseRequestView mBaseRequestView;
         //上传文件
         private List<FileInfoBean> mFileInfoBeans;
         private String multiFileKey;
@@ -281,7 +281,7 @@ public class BaseModel {
         VIEW(3),//有错误、网络异常等布局
         DIALOG_VIEW(4);//综上两点
 
-        private int mValue;
+        private final int mValue;
 
         LoadStyle(int value) {
             mValue = value;

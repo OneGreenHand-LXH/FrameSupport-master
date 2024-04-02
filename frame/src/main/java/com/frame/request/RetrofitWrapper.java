@@ -17,9 +17,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitWrapper {
 
     private static volatile RetrofitWrapper instance = null;
-    private Retrofit retrofit;
+    private final Retrofit retrofit;
     private static int NOW_TIME_OUT = 10;//当前的超时时长
-    private static int ALL_TIME_OUT = 10;//总超时时长
+    private static final int ALL_TIME_OUT = 10;//总超时时长
 
     private RetrofitWrapper(int time) {
         NOW_TIME_OUT = time;

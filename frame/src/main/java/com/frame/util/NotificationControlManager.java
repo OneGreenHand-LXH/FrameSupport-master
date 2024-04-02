@@ -1,5 +1,6 @@
 package com.frame.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -100,6 +101,7 @@ public class NotificationControlManager {
      * @param content 内容
      * @param cls     通知点击后跳转的Activity
      */
+    @SuppressLint("UnspecifiedImmutableFlag")
     public <A extends Activity> void notify(String title, String content, Class<A> cls) {
         Activity context = ForegroundActivityManager.getInstance().getCurrentActivity();
         if (null == context)

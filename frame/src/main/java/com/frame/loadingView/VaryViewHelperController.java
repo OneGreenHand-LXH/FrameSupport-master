@@ -10,7 +10,7 @@ import com.frame.util.CustomClickListener;
 
 public class VaryViewHelperController {
 
-    private IVaryViewHelper helper;
+    private final IVaryViewHelper helper;
     private int emptyView;
 
     public VaryViewHelperController(View view, int emptyView) {

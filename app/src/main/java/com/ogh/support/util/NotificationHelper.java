@@ -19,9 +19,9 @@ import com.ogh.support.receiver.NotificationClickReceiver;
 public class NotificationHelper {
 
     private NotificationManager manager;
-    private Context mContext;
-    private static String CHANNEL_ID = "DownloadService";//8.0两者必须一致
-    private static String CHANNEL_NAME = "下载更新";//会出现在(通知-类别）
+    private final Context mContext;
+    private static final String CHANNEL_ID = "DownloadService";//8.0两者必须一致
+    private static final String CHANNEL_NAME = "下载更新";//会出现在(通知-类别）
     private static final int NOTIFICATION_ID = 1;//不能为0
 
     public NotificationHelper(Context context) {

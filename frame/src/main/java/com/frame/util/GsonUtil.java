@@ -22,10 +22,10 @@ import java.util.Map;
 public class GsonUtil {
 
     private static Gson buildGson() {
-        GsonBuilder gsonBulder = new GsonBuilder();
-        gsonBulder.registerTypeAdapter(String.class, STRING);
-        gsonBulder.serializeNulls();
-        return gsonBulder.create();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(String.class, STRING);
+        gsonBuilder.serializeNulls();
+        return gsonBuilder.create();
     }
 
     /**

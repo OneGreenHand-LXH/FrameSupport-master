@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 
 public class VaryViewHelper implements IVaryViewHelper {
-    private View view;
+    private final View view;
     private ViewGroup parentView;
     private int viewIndex;
     private ViewGroup.LayoutParams params;
