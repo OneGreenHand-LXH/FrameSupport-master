@@ -4,6 +4,7 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
+    namespace 'com.ogh.support'
     def version = rootProject.ext.versions
     compileSdkVersion version.compileSdkVersion
     buildToolsVersion version.buildToolsVersion

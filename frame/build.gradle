@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: "com.blankj.bus"//BusUtils
 android {
+    namespace 'com.frame'
     def version = rootProject.ext.versions
     compileSdkVersion versions.compileSdkVersion
     buildToolsVersion versions.buildToolsVersion
@@ -8,8 +9,6 @@ android {
     defaultConfig {
         minSdkVersion version.minSdkVersion
         targetSdkVersion version.targetSdkVersion
-        versionCode version.versionCode
-        versionName version.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
