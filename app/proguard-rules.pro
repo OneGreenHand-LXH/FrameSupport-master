@@ -314,6 +314,19 @@ rx.internal.util.atomic.LinkedQueueNode consumerNode;
 # Bugly
 -dontwarn com.tencent.bugly.**
 -keep class com.tencent.bugly.** {*;}
+#GreenDao
+-keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
+public static java.lang.String TABLENAME;
+}
+-keep class **$Properties { *; }
+-keep class org.greenrobot.greendao.database.SqlCipherEncryptedHelper { *; }
+-dontwarn net.sqlcipher.database.**
+-dontwarn rx.**
+#GreenDao数据库升级
+-keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
+    public static void dropTable(org.greenrobot.greendao.database.Database, boolean);
+    public static void createTable(org.greenrobot.greendao.database.Database, boolean);
+}
 #其他
 -dontwarn org.xmlpull.v1.XmlPullParser
 -dontwarn org.xmlpull.v1.XmlSerializer
