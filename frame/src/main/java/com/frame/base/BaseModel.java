@@ -143,7 +143,7 @@ public class BaseModel {
                 try { //解析json
                     B bean = GsonUtil.getBean(requestBody.string(), clazz);
                     mIsEmpty = bean.isEmpty();
-                    if (bean.code == 200) {
+                    if (bean.errorCode == 0) {
                         mBuilder.mBaseRequestView.requestSuccess(bean, mBuilder.requestTag == null ? tag : mBuilder.requestTag, mBuilder.pageIndex, mBuilder.pageCount);
                     } else {
                         mBuilder.mBaseRequestView.requestFail(bean, mBuilder.requestTag == null ? tag : mBuilder.requestTag);

@@ -61,14 +61,14 @@ public class VerificationCode extends TextView implements LifecycleObserver, Bas
             new BaseModel.Builder(this)
                     .putParam("Mobile", phone)
                     .putParam("VCType", codeType.getValue())
-                    .create().post(API.GET_DUAN_ZI);//这里填写真实请求地址
+                    .create().post(API.GET_WEN_ZHANG);//这里填写真实请求地址
         }
     }
 
     public enum CodeType {
         LOGIN(1),//登录
         REGISTER(2);//注册
-        private int mValue;
+        private final int mValue;
 
         CodeType(int value) {
             mValue = value;
@@ -147,7 +147,7 @@ public class VerificationCode extends TextView implements LifecycleObserver, Bas
 
     @Override
     public void requestFail(BaseBean data, Object tag) {
-        ToastUtil.showShortToast(data.msg);
+        ToastUtil.showShortToast(data.errorMsg);
     }
 
     @Override

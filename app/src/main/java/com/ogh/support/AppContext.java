@@ -20,7 +20,7 @@ public class AppContext extends FrameApplication {
     }
 
     /**
-     * 不改变Oncreate()方法中的业务逻辑
+     * 不改变OnCreate()方法中的业务逻辑
      */
     @Override
     protected void attachBaseContext(Context base) {

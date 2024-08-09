@@ -42,8 +42,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         List<Fragment> mFragment = new ArrayList<>();
         mFragment.add(new HomeFragment());
         mFragment.add(new MineFragment());
-        //   viewBinding.viewPager.setUserInputEnabled(false);//禁止滑动
-        //    viewBinding.viewPager.setOffscreenPageLimit(mFragment.size());//设置缓存,数量超过2可设置
+        //viewBinding.viewPager.setUserInputEnabled(false);//禁止滑动
+        //viewBinding.viewPager.setOffscreenPageLimit(mFragment.size());//设置缓存,数量超过2可设置
         viewBinding.viewPager.setAdapter(new FragmentAdapter(this, mFragment));
         initViewPagerChangeListener();
         viewBinding.navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {

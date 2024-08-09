@@ -7,6 +7,8 @@ import android.view.View;
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.frame.base.fragment.BaseFragment;
+import com.frame.util.CustomClickListener;
+import com.frame.util.NotificationControlManager;
 import com.frame.util.ToastUtil;
 import com.ogh.support.config.AppConfig;
 import com.ogh.support.databinding.FragmentHomeBinding;
@@ -21,6 +23,17 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
     }
 
     private void setViewClicked() {
+        viewBinding.appToast.setOnClickListener(new CustomClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                NotificationControlManager.getInstance().showNotificationDialog("文件上传完成", "文件上传完成,请点击查看详情", new NotificationControlManager.OnNotificationCallback() {
+                    @Override
+                    public void onCallback() {
+                        ToastUtil.showShortToast("我被点击了");
+                    }
+                });
+            }
+        });
         viewBinding.videoWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

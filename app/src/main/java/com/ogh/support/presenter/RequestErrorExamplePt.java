@@ -3,7 +3,7 @@ package com.ogh.support.presenter;
 import com.frame.base.BaseModel;
 import com.frame.base.BasePresenter;
 import com.ogh.support.api.API;
-import com.ogh.support.bean.DuanZiBean;
+import com.ogh.support.bean.WenZhangBean;
 import com.ogh.support.view.activity.NoDataExampleActivity;
 
 public class RequestErrorExamplePt extends BasePresenter<NoDataExampleActivity> {
@@ -12,12 +12,12 @@ public class RequestErrorExamplePt extends BasePresenter<NoDataExampleActivity> 
     }
 
     /**
-     * 获取段子
+     * 首页文章列表
      */
-    public void getPersonalizedSignature() {
+    public void getWenZhangList() {
         createRequestBuilder()
                 .setLoadStyle(BaseModel.LoadStyle.DIALOG_VIEW)
                 .create()
-                .get(API.GET_DUAN_ZI + "?page=999&count=10&type=text", DuanZiBean.class);
+                .get(API.GET_WEN_ZHANG + "/99999/json", WenZhangBean.class);
     }
 }

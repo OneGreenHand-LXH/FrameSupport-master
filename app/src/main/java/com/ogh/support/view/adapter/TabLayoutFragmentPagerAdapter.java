@@ -8,8 +8,8 @@ import java.util.List;
 
 public class TabLayoutFragmentPagerAdapter extends FragmentStateAdapter {
 
-    private List<Fragment> mFragments;
-    private List<String> titles;
+    private final List<Fragment> mFragments;
+    private final List<String> titles;
 
     public TabLayoutFragmentPagerAdapter(FragmentActivity activity, List<Fragment> fragments, List<String> titles) {
         super(activity);

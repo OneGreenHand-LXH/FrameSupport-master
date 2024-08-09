@@ -18,9 +18,9 @@ import com.ogh.support.view.dialog.TipDialog;
  */
 public class JSInterface {
 
-    private Context mContext;
+    private final Context mContext;
     // 将请求成功的数据返回到主线程进行数据更新
-    private Handler mHandler = new Handler(FrameApplication.getContext().getMainLooper());
+    private final Handler mHandler = new Handler(FrameApplication.getContext().getMainLooper());
 
     public JSInterface(Context context) {
         this.mContext = context;

@@ -12,7 +12,7 @@ import android.widget.PopupWindow;
 import com.ogh.support.widget.Solve7PopupWindow;
 
 /**
- * Popupwindow工具类，直接传入view然后调用显示即可
+ * PopupWindow工具类，直接传入view然后调用显示即可
  */
 public class PopupWindowUtil {
 
@@ -28,7 +28,7 @@ public class PopupWindowUtil {
         popupWindow.setWidth(isMatch ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        popupWindow.setOutsideTouchable(cancel);// 设置popupwindow外部可点击
+        popupWindow.setOutsideTouchable(cancel);// 设置PopupWindow外部可点击
         popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);//让pop覆盖在输入法上面
         popupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);//软键盘顶起当前界面,当前布局的高度会发生变化
         if (isAlpha) {

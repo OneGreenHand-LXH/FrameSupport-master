@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.frame.base.activity.BaseSwipeActivity;
 import com.frame.bean.BaseBean;
-import com.ogh.support.bean.DuanZiBean;
+import com.ogh.support.bean.WenZhangBean;
 import com.ogh.support.databinding.LayoutHeadFootExampleBinding;
 import com.ogh.support.presenter.HeadFootExamplePt;
 import com.ogh.support.view.adapter.ExampleAdapter;
@@ -17,12 +17,12 @@ import com.ogh.support.view.adapter.ExampleAdapter;
 /**
  * 添加头部和脚部的示例(带下拉刷新上拉加载)
  */
-public class HeadFootExampleActivity extends BaseSwipeActivity<LayoutHeadFootExampleBinding,HeadFootExamplePt, BaseBean> {
+public class HeadFootExampleActivity extends BaseSwipeActivity<LayoutHeadFootExampleBinding, HeadFootExamplePt, BaseBean> {
     ExampleAdapter adapter;
 
     @Override
     protected void onRefreshRequest() {
-        mPresenter.getDuanZiList();
+        mPresenter.getWenZhangList();
     }
 
     @Override
@@ -35,12 +35,12 @@ public class HeadFootExampleActivity extends BaseSwipeActivity<LayoutHeadFootExa
         viewBinding.titlebar.setTitle("添加头部和脚部的示例");
         viewBinding.frameRecycleView.setLayoutManager(new LinearLayoutManager(mContext));
         adapter = new ExampleAdapter();
-        //  adapter.setHeaderWithEmptyEnable(true);//空布局时,头部显示出来
-        // adapter.setFooterWithEmptyEnable(true);//空布局时,脚部显示出来
+        //adapter.setHeaderWithEmptyEnable(true);//空布局时,头部显示出来
+        //adapter.setFooterWithEmptyEnable(true);//空布局时,脚部显示出来
         initHeadFootView();
         viewBinding.frameRecycleView.setAdapter(adapter);
         adapter.setEmptyView(getEmptyView());//设置空布局(引用资源文件必须放在setAdapter()后才有效)
-        mPresenter.getDuanZiList();
+        mPresenter.getWenZhangList();
     }
 
     /**
@@ -63,9 +63,9 @@ public class HeadFootExampleActivity extends BaseSwipeActivity<LayoutHeadFootExa
 
     @Override
     public void requestSuccess(BaseBean data, Object tag, int pageIndex, int pageCount) {
-        DuanZiBean duanZiBean = (DuanZiBean) data;
-        if (duanZiBean == null)
+        WenZhangBean wenZhangBean = (WenZhangBean) data;
+        if (null == wenZhangBean || null == wenZhangBean.data)
             return;
-        adapter.setList(duanZiBean.result);
+        adapter.setList(wenZhangBean.data.datas);
     }
 }

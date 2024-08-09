@@ -15,25 +15,26 @@ ext {
 
     // 依赖相关版本控制
     depVersion = [
-            retrofit           : "2.9.0",
-            okhttp_logging     : "4.10.0",
-            utilcode           : "1.31.0",
+            retrofit           : "2.11.0",
+            okhttp_logging     : "4.12.0",
+            utilcode           : "1.31.1",
             immersionbar       : "3.2.2",
             walle              : "1.1.7",
             autodispose        : "2.2.1",
-            rxandroid          : "3.0.0",
-            RecyclerViewAdapter: "3.0.4",
+            rxandroid          : "3.0.2",
+            eventbus           : "3.3.1",
+            RecyclerViewAdapter: "3.0.14",
     ]
 
     // 依赖具体版本
     deps = [
             suport             : [
-                    gson              : 'com.google.code.gson:gson:2.9.1',
-                    design            : 'com.google.android.material:material:1.6.1',
-                    appcompat         : 'androidx.appcompat:appcompat:1.4.2',
+                    gson              : 'com.google.code.gson:gson:2.11.0',
+                    design            : 'com.google.android.material:material:1.12.0',
+                    appcompat         : 'androidx.appcompat:appcompat:1.7.0',
                     swiperefreshlayout: 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0',
-                    viewbinding       : 'androidx.databinding:viewbinding:7.2.2',
-                    recyclerview      : 'androidx.recyclerview:recyclerview:1.2.1',
+                    viewbinding       : 'androidx.databinding:viewbinding:8.5.1',
+                    recyclerview      : 'androidx.recyclerview:recyclerview:1.3.2',
             ],
             retrofit2          : [
                     retrofit       : "com.squareup.retrofit2:retrofit:${depVersion.retrofit}",
@@ -41,13 +42,15 @@ ext {
                     converter_gson : "com.squareup.retrofit2:converter-gson:${depVersion.retrofit}",
             ],
             //RecyclerViewAdapter
-            RecyclerViewAdapter: "com.github.CymChad:BaseRecyclerViewAdapterHelper:${depVersion.RecyclerViewAdapter}",
+            RecyclerViewAdapter: "io.github.cymchad:BaseRecyclerViewAdapterHelper:${depVersion.RecyclerViewAdapter}",
             //工具类
             utilcode           : "com.blankj:utilcodex:${depVersion.utilcode}",
             //沉浸式状态栏(activity)
             immersionbar       : "com.geyifeng.immersionbar:immersionbar:${depVersion.immersionbar}",
             //walle读取渠道号
             walle              : "com.meituan.android.walle:library:${depVersion.walle}",
+            //EventBus
+            eventbus              : "org.greenrobot:eventbus:${depVersion.eventbus}",
             //绑定生命周期(RxJava)
             autodispose        : "com.uber.autodispose2:autodispose-androidx-lifecycle:${depVersion.autodispose}",
             rxandroid          : "io.reactivex.rxjava3:rxandroid:${depVersion.rxandroid}",

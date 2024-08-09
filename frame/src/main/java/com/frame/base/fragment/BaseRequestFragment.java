@@ -32,7 +32,7 @@ public abstract class BaseRequestFragment<T extends ViewBinding, P extends BaseP
 
     @Override
     public void requestFail(B data, Object tag) {
-        ToastUtil.showShortToast(data.msg);
+        ToastUtil.showShortToast(data.errorMsg);
     }
 
     protected void reRequest() {

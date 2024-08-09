@@ -112,9 +112,9 @@ public class InstructionsUtils {
      */
     private static class CheckInstallTask extends AsyncTask<Void, Void, Boolean> {
 
-        private Context context;
-        private String packageName;
-        private String downUrl;
+        private final Context context;
+        private final String packageName;
+        private final String downUrl;
 
         private CheckInstallTask(Context context, String packageName, String downUrl) {
             this.context = context;

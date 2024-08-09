@@ -3,7 +3,7 @@ package com.ogh.support.presenter;
 import com.frame.base.BaseModel;
 import com.frame.base.BasePresenter;
 import com.ogh.support.api.API;
-import com.ogh.support.bean.DuanZiBean;
+import com.ogh.support.bean.WenZhangBean;
 import com.ogh.support.view.activity.RefreshRequestActivity;
 
 public class RefreshRequestPt extends BasePresenter<RefreshRequestActivity> {
@@ -12,16 +12,14 @@ public class RefreshRequestPt extends BasePresenter<RefreshRequestActivity> {
     }
 
     /**
-     * 获取段子
+     * 首页文章列表
      */
-    public void getDuanZiList(int page) {
+    public void getWenZhangList(int page) {
         createRequestBuilder()
-                .setLoadStyle(page == 1 ? BaseModel.LoadStyle.DIALOG : BaseModel.LoadStyle.NONE)
+                .setLoadStyle(page == 0 ? BaseModel.LoadStyle.DIALOG : BaseModel.LoadStyle.NONE)
                 .setPageIndex(page)
-                .putParam("type", "text")
-                .putParam("page", page)
-                .putParam("count", "15")
+                .setPageCount(10)//改为每页10条，发现有时候没那么多数据,导致无法分页
                 .create()
-                .post(API.GET_DUAN_ZI, DuanZiBean.class);
+                .get(API.GET_WEN_ZHANG + "/" + page + "/json?page_size=10", WenZhangBean.class);
     }
 }

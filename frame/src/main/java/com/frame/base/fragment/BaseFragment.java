@@ -13,10 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewbinding.ViewBinding;
 
-import com.blankj.utilcode.util.BusUtils;
 import com.frame.R;
 import com.frame.base.BaseView;
 import com.frame.view.LoadingDialog;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -55,7 +56,7 @@ public abstract class BaseFragment<T extends ViewBinding> extends Fragment imple
         super.onViewCreated(view, savedInstanceState);
         initCommon();
         if (isRegisterBus())
-            BusUtils.register(this);
+            EventBus.getDefault().register(this);
         init(savedInstanceState);
     }
 
@@ -69,7 +70,7 @@ public abstract class BaseFragment<T extends ViewBinding> extends Fragment imple
     }
 
     /**
-     * 是否需要注册BusUtils
+     * 是否需要注册EventBus
      */
     protected boolean isRegisterBus() {
         return false;
@@ -109,7 +110,7 @@ public abstract class BaseFragment<T extends ViewBinding> extends Fragment imple
         //页面销毁时隐藏dialog，否则重新打开页面时可能会报java.lang.IllegalArgumentException: View not attached to window manager
         dismissLoadingDialog();
         if (isRegisterBus())
-            BusUtils.unregister(this);
+            EventBus.getDefault().unregister(this);
     }
 
 }

@@ -15,10 +15,10 @@ public class BaseConfig {
     //通用请求地址
     public static String getUrl() {
         if (DEBUG) {
-            return "https://api.apiopen.top/";
+            return "https://www.wanandroid.com/";
         } else {
             String urls = SPStaticUtils.getString("baseUrl");
-            return TextUtils.isEmpty(urls) ? "https://api.apiopen.top/" : urls;
+            return TextUtils.isEmpty(urls) ? "https://www.wanandroid.com/" : urls;
         }
     }
 

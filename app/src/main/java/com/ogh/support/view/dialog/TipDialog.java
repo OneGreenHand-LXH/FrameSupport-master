@@ -71,11 +71,11 @@ public class TipDialog extends BaseDialog {
 //        super.show();
 //    }
 
-    private ViewTreeObserver.OnGlobalLayoutListener listener = new ViewTreeObserver.OnGlobalLayoutListener() {
+    private final ViewTreeObserver.OnGlobalLayoutListener listener = new ViewTreeObserver.OnGlobalLayoutListener() {
         @Override
         public void onGlobalLayout() {
             if (content.getLineCount() > 1) {
-                content.setGravity(Gravity.LEFT);
+                content.setGravity(Gravity.START);
             } else
                 content.setGravity(Gravity.CENTER);
             content.getViewTreeObserver().removeOnGlobalLayoutListener(listener);

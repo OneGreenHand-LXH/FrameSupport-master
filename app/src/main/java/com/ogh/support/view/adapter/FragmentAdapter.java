@@ -12,7 +12,7 @@ import java.util.List;
  * https://developer.android.google.cn/training/animation/screen-slide-2?hl=zh-cn
  */
 public class FragmentAdapter extends FragmentStateAdapter {
-    private List<Fragment> mFragments;
+    private final List<Fragment> mFragments;
 
     public FragmentAdapter(FragmentActivity activity, List<Fragment> mFragments) {
         super(activity);
